@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import LoadingSpinner from "../../components/ui/LoadingSpinner";
-import { roomsAPI } from "../../services/api";
 
 // Mock Link component for demonstration
 const Link = ({ to, children, className, ...props }) => (
@@ -167,17 +166,9 @@ const LandingPage = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchRooms = async () => {
-      try {
-        const response = await roomsAPI.getRooms({ isActive: true });
-        setRooms(response.data.data);
-      } catch (error) {
-        console.error("Error fetching rooms:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchRooms();
+    // Temporarily disable rooms fetching to prevent errors
+    setLoading(false);
+    setRooms([]);
   }, []);
 
   const features = [
@@ -437,7 +428,7 @@ const LandingPage = () => {
               <div className="col-span-full flex justify-center py-12">
                 <LoadingSpinner />
               </div>
-            ) : rooms.length === 0 ? (
+            ) : !rooms || rooms.length === 0 ? (
               <div className="col-span-full text-center py-12">
                 <p className="text-gray-600 text-lg">
                   Tidak ada ruangan tersedia saat ini.
