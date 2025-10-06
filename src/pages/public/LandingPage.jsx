@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import LoadingSpinner from "../../components/ui/LoadingSpinner";
 import { roomsAPI } from "../../services/api";
-import SplitText from "../../components/ui/SplitText";
 
 // Mock Link component for demonstration
 const Link = ({ to, children, className, ...props }) => (
@@ -15,9 +14,6 @@ const handleScroll = (e, targetId) => {
   if (targetElement) {
     targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
   }
-};
-const handleAnimationComplete = () => {
-  console.log("");
 };
 
 // Custom SVG Icons to replace Heroicons
@@ -340,36 +336,10 @@ const LandingPage = () => {
             <div className="mb-8 animate-fade-in">
               {/* Animated Text */}
               <h1 className="text-5xl md:text-7xl font-bold text-center text-gray-900 leading-normal">
-                <SplitText
-                  text="Selamat Datang di SIMPRUSWIL"
-                  className="text-7xl font-semibold text-center leading-normal"
-                  delay={100}
-                  duration={0.6}
-                  ease="power3.out"
-                  splitType="chars"
-                  from={{ opacity: 0, y: 40 }}
-                  to={{ opacity: 1, y: 0 }}
-                  threshold={0.1}
-                  rootMargin="-100px"
-                  textAlign="center"
-                  onLetterAnimationComplete={handleAnimationComplete}
-                />
+                Selamat Datang di SIMPRUSWIL
               </h1>
               <p className="text-lg md:text-xl font-medium text-center text-gray-700 leading-normal">
-                <SplitText
-                  text="Sistem Informasi Peminjaman Ruang Pustaka Wilayah"
-                  className="text-xl font-bold text-center leading-normal text-black"
-                  delay={50}
-                  duration={0.2}
-                  ease="power3.out"
-                  splitType="chars"
-                  from={{ opacity: 0, y: 40 }}
-                  to={{ opacity: 1, y: 0 }}
-                  threshold={0.1}
-                  rootMargin="-100px"
-                  textAlign="center"
-                  onLetterAnimationComplete={handleAnimationComplete}
-                />
+                Sistem Informasi Peminjaman Ruang Pustaka Wilayah
               </p>
             </div>
             <p className="text-md md:text-2xl text-gray-600 mb-12 max-w-4xl mx-auto leading-relaxed">
