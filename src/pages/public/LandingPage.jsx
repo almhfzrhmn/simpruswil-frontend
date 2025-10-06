@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import LoadingSpinner from "../../components/ui/LoadingSpinner";
+import { roomsAPI } from "../../services/api";
 
 // Mock Link component for demonstration
 const Link = ({ to, children, className, ...props }) => (
@@ -166,9 +167,22 @@ const LandingPage = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Temporarily disable rooms fetching to prevent errors
-    setLoading(false);
-    setRooms([]);
+    const fetchRooms = async () => {
+      try {
+        const response = await roomsAPI.getRooms({ isActive: true });
+        const roomsData = response?.data?.data;
+        setRooms(Array.isArray(roomsData) ? roomsData : []);
+      } catch (error) {
+        console.error("Error fetching rooms:", error);
+        setRooms([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    // Add a small delay to prevent race conditions
+    const timer = setTimeout(fetchRooms, 100);
+    return () => clearTimeout(timer);
   }, []);
 
   const features = [
