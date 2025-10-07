@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import { useAuth } from '../../contexts/AuthContext';
+import { useAuth } from '../../hooks/useAuth';
 import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline';
 import LoadingSpinner from '../../components/ui/LoadingSpinner';
 import gedungPuswilImage from '../../assets/images/gedung-puswil.jpg'

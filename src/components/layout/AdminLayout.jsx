@@ -1,7 +1,7 @@
 // src/components/layout/AdminLayout.jsx - Admin Layout Component
 import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useAuth } from "../../contexts/AuthContext";
+import { useAuth } from "../../hooks/useAuth";
 import {
   Squares2X2Icon,
   BuildingOfficeIcon,

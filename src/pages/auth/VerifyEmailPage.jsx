@@ -1,7 +1,7 @@
 // src/pages/auth/VerifyEmailPage.jsx - Email Verification Page
 import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate, useLocation, useSearchParams } from 'react-router-dom';
-import { useAuth } from '../../contexts/AuthContext.jsx';
+import { useAuth } from '../../hooks/useAuth';
 import { 
   BookOpenIcon, 
   EnvelopeIcon, 

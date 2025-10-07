@@ -59,89 +59,89 @@ api.interceptors.response.use(
 
 // Authentication API
 export const authAPI = {
-  login: (credentials) => api.post('/api/auth/login', credentials),
-  register: (userData) => api.post('/api/auth/register', userData),
-  logout: () => api.post('/api/auth/logout'),
-  getMe: () => api.get('/api/auth/me'),
-  updateProfile: (userData) => api.put('/api/auth/profile', userData),
-  changePassword: (data) => api.put('/api/auth/change-password', data),
-  verifyEmail: (data) => api.post('/api/auth/verify-email', data),
-  resendVerification: (data) => api.post('/api/auth/resend-verification', data),
-  forgotPassword: (data) => api.post('/api/auth/forgot-password', data),
-  resetPassword: (data) => api.post('/api/auth/reset-password', data),
+  login: (credentials) => api.post('/auth/login', credentials),
+  register: (userData) => api.post('/auth/register', userData),
+  logout: () => api.post('/auth/logout'),
+  getMe: () => api.get('/auth/me'),
+  updateProfile: (userData) => api.put('/auth/profile', userData),
+  changePassword: (data) => api.put('/auth/change-password', data),
+  verifyEmail: (data) => api.post('/auth/verify-email', data),
+  resendVerification: (data) => api.post('/auth/resend-verification', data),
+  forgotPassword: (data) => api.post('/auth/forgot-password', data),
+  resetPassword: (data) => api.post('/auth/reset-password', data),
 };
 
 // Rooms API
 export const roomsAPI = {
-  getRooms: (params = {}) => api.get('/api/rooms', { params }),
-  getRoom: (id) => api.get(`/api/rooms/${id}`),
-  checkAvailability: (id, data) => api.post(`/api/rooms/${id}/check-availability`, data),
-  getCalendar: (id, params = {}) => api.get(`/api/rooms/${id}/calendar`, { params }),
+  getRooms: (params = {}) => api.get('/rooms', { params }),
+  getRoom: (id) => api.get(`/rooms/${id}`),
+  checkAvailability: (id, data) => api.post(`/rooms/${id}/check-availability`, data),
+  getCalendar: (id, params = {}) => api.get(`/rooms/${id}/calendar`, { params }),
 
   // Admin only
-  createRoom: (formData) => api.post('/api/rooms', formData, {
+  createRoom: (formData) => api.post('/rooms', formData, {
     headers: { 'Content-Type': 'multipart/form-data' }
   }),
-  updateRoom: (id, formData) => api.put(`/api/rooms/${id}`, formData, {
+  updateRoom: (id, formData) => api.put(`/rooms/${id}`, formData, {
     headers: { 'Content-Type': 'multipart/form-data' }
   }),
-  deleteRoom: (id) => api.delete(`/api/rooms/${id}`),
-  toggleRoomStatus: (id) => api.patch(`/api/rooms/${id}/toggle-status`),
+  deleteRoom: (id) => api.delete(`/rooms/${id}`),
+  toggleRoomStatus: (id) => api.patch(`/rooms/${id}/toggle-status`),
 };
 
 // Bookings API
 export const bookingsAPI = {
-  createBooking: (formData) => api.post('/api/bookings', formData, {
+  createBooking: (formData) => api.post('/bookings', formData, {
     headers: { 'Content-Type': 'multipart/form-data' }
   }),
-  getMyBookings: (params = {}) => api.get('/api/bookings/my-bookings', { params }),
-  getBooking: (id) => api.get(`/api/bookings/${id}`),
-  updateBooking: (id, formData) => api.put(`/api/bookings/${id}`, formData, {
+  getMyBookings: (params = {}) => api.get('/bookings/my-bookings', { params }),
+  getBooking: (id) => api.get(`/bookings/${id}`),
+  updateBooking: (id, formData) => api.put(`/bookings/${id}`, formData, {
     headers: { 'Content-Type': 'multipart/form-data' }
   }),
-  cancelBooking: (id) => api.patch(`/api/bookings/${id}/cancel`),
-  deleteBooking: (id) => api.delete(`/api/bookings/${id}`),
+  cancelBooking: (id) => api.patch(`/bookings/${id}/cancel`),
+  deleteBooking: (id) => api.delete(`/bookings/${id}`),
 
   // Admin only
-  getAllBookings: (params = {}) => api.get('/api/bookings', { params }),
-  updateBookingStatus: (id, data) => api.patch(`/api/bookings/${id}/status`, data),
-  deleteBookingAdmin: (id) => api.delete(`/api/bookings/admin/${id}`),
-  getBookingStats: (params = {}) => api.get('/api/bookings/admin/stats', { params }),
-  getUpcomingBookings: (params = {}) => api.get('/api/bookings/admin/upcoming', { params }),
+  getAllBookings: (params = {}) => api.get('/bookings', { params }),
+  updateBookingStatus: (id, data) => api.patch(`/bookings/${id}/status`, data),
+  deleteBookingAdmin: (id) => api.delete(`/bookings/admin/${id}`),
+  getBookingStats: (params = {}) => api.get('/bookings/admin/stats', { params }),
+  getUpcomingBookings: (params = {}) => api.get('/bookings/admin/upcoming', { params }),
 };
 
 // Tours API
 export const toursAPI = {
-  createTour: (data) => api.post('/api/tours', data),
-  getMyTours: (params = {}) => api.get('/api/tours/my-tours', { params }),
-  getTour: (id) => api.get(`/api/tours/${id}`),
-  updateTour: (id, data) => api.put(`/api/tours/${id}`, data),
-  cancelTour: (id) => api.patch(`/api/tours/${id}/cancel`),
-  getAvailableSlots: (params = {}) => api.get('/api/tours/available-slots', { params }),
-  getTourCalendar: (params = {}) => api.get('/api/tours/calendar', { params }),
+  createTour: (data) => api.post('/tours', data),
+  getMyTours: (params = {}) => api.get('/tours/my-tours', { params }),
+  getTour: (id) => api.get(`/tours/${id}`),
+  updateTour: (id, data) => api.put(`/tours/${id}`, data),
+  cancelTour: (id) => api.patch(`/tours/${id}/cancel`),
+  getAvailableSlots: (params = {}) => api.get('/tours/available-slots', { params }),
+  getTourCalendar: (params = {}) => api.get('/tours/calendar', { params }),
 
   // Admin only
-  getAllTours: (params = {}) => api.get('/api/tours', { params }),
-  updateTourStatus: (id, data) => api.patch(`/api/tours/${id}/status`, data),
-  getTourStats: (params = {}) => api.get('/api/tours/admin/stats', { params }),
-  getUpcomingTours: (params = {}) => api.get('/api/tours/admin/upcoming', { params }),
-  deleteTourAdmin: (id) => api.delete(`/api/tours/admin/${id}`),
+  getAllTours: (params = {}) => api.get('/tours', { params }),
+  updateTourStatus: (id, data) => api.patch(`/tours/${id}/status`, data),
+  getTourStats: (params = {}) => api.get('/tours/admin/stats', { params }),
+  getUpcomingTours: (params = {}) => api.get('/tours/admin/upcoming', { params }),
+  deleteTourAdmin: (id) => api.delete(`/tours/admin/${id}`),
 };
 
 // Admin API
 export const adminAPI = {
-  getDashboard: () => api.get('/api/admin/dashboard'),
-  getStats: (params = {}) => api.get('/api/admin/stats', { params }),
-  getUsers: (params = {}) => api.get('/api/admin/users', { params }),
-  getUser: (id) => api.get(`/api/admin/users/${id}`),
-  updateUserStatus: (id, data) => api.patch(`/api/admin/users/${id}/status`, data),
-  deleteUser: (id) => api.delete(`/api/admin/users/${id}`),
-  bulkAction: (data) => api.post('/api/admin/bulk-action', data),
-  exportData: (type, params = {}) => api.get(`/api/admin/export/${type}`, {
+  getDashboard: () => api.get('/admin/dashboard'),
+  getStats: (params = {}) => api.get('/admin/stats', { params }),
+  getUsers: (params = {}) => api.get('/admin/users', { params }),
+  getUser: (id) => api.get(`/admin/users/${id}`),
+  updateUserStatus: (id, data) => api.patch(`/admin/users/${id}/status`, data),
+  deleteUser: (id) => api.delete(`/admin/users/${id}`),
+  bulkAction: (data) => api.post('/admin/bulk-action', data),
+  exportData: (type, params = {}) => api.get(`/admin/export/${type}`, {
     params,
     responseType: 'blob'
   }),
-  getSettings: () => api.get('/api/admin/settings'),
+  getSettings: () => api.get('/admin/settings'),
 };
 
 // File upload helper
@@ -149,7 +149,7 @@ export const uploadFile = async (file, type = 'document') => {
   const formData = new FormData();
   formData.append(type, file);
 
-  return api.post('/api/upload', formData, {
+  return api.post('/upload', formData, {
     headers: {
       'Content-Type': 'multipart/form-data',
     },

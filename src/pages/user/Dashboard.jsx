@@ -1,7 +1,7 @@
 // src/pages/user/Dashboard.jsx - User Dashboard
 import React, { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
-import { useAuth } from '../../contexts/AuthContext';
+import { useAuth } from '../../hooks/useAuth';
 import { roomsAPI, bookingsAPI, toursAPI } from '../../services/api';
 import {
   BuildingOfficeIcon,

@@ -13,7 +13,7 @@ import './styles/swiper-custom.css';
 
 // Context Providers
 import { AuthProvider } from "./contexts/AuthContext";
-import { useAuth } from "./contexts/AuthContext";
+import { useAuth } from "./hooks/useAuth";
 
 // Lazy load all components for code splitting
 // Public Pages

@@ -6,6 +6,6 @@
     }
   ],
   "env": {
-    "VITE_API_URL": "https://simpruswil-backend.vercel.app/api"
+    "VITE_API_URL": "https://simpruswil-backend-production.up.railway.app/api"
   }
 }

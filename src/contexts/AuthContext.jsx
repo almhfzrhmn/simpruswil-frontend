@@ -1,11 +1,7 @@
-import React, { useReducer, useEffect, createContext, useContext } from 'react';
+import React, { useReducer, useEffect } from 'react';
 import { authAPI } from '../services/api';
-// import { AuthContext } from './AuthContext';
 import toast from 'react-hot-toast';
-
-export const AuthContext = createContext();
-
-export const useAuth =() => useContext(AuthContext);
+import { AuthContext } from './AuthContextValue';
 // Initial state
 const initialState = {
   user: null,
