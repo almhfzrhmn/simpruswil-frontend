@@ -31,16 +31,17 @@ const RegisterPage = () => {
       const result = await registerUser(data);
 
       if (result.success) {
-        navigate('/verify-email', {
+        navigate('/login', {
           state: {
             email: data.email,
-            message: 'Akun berhasil dibuat! Silakan cek email untuk verifikasi.'
+            message: 'Akun berhasil dibuat! Silakan login untuk melanjutkan.'
           }
         });
       } else {
         setError('root', { message: result.error });
       }
-    } catch {
+    } catch (error) {
+      console.error('Register error:', error);
       setError('root', { message: 'Terjadi kesalahan yang tidak terduga' });
     } finally {
       setIsLoading(false);
