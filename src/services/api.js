@@ -79,26 +79,18 @@ export const roomsAPI = {
   getCalendar: (id, params = {}) => api.get(`/rooms/${id}/calendar`, { params }),
 
   // Admin only
-  createRoom: (formData) => api.post('/rooms', formData, {
-    headers: { 'Content-Type': 'multipart/form-data' }
-  }),
-  updateRoom: (id, formData) => api.put(`/rooms/${id}`, formData, {
-    headers: { 'Content-Type': 'multipart/form-data' }
-  }),
+  createRoom: (formData) => api.post('/rooms', formData),
+  updateRoom: (id, formData) => api.put(`/rooms/${id}`, formData),
   deleteRoom: (id) => api.delete(`/rooms/${id}`),
   toggleRoomStatus: (id) => api.patch(`/rooms/${id}/toggle-status`),
 };
 
 // Bookings API
 export const bookingsAPI = {
-  createBooking: (formData) => api.post('/bookings', formData, {
-    headers: { 'Content-Type': 'multipart/form-data' }
-  }),
+  createBooking: (formData) => api.post('/bookings', formData),
   getMyBookings: (params = {}) => api.get('/bookings/my-bookings', { params }),
   getBooking: (id) => api.get(`/bookings/${id}`),
-  updateBooking: (id, formData) => api.put(`/bookings/${id}`, formData, {
-    headers: { 'Content-Type': 'multipart/form-data' }
-  }),
+  updateBooking: (id, formData) => api.put(`/bookings/${id}`, formData),
   cancelBooking: (id) => api.patch(`/bookings/${id}/cancel`),
   deleteBooking: (id) => api.delete(`/bookings/${id}`),
 
@@ -149,11 +141,7 @@ export const uploadFile = async (file, type = 'document') => {
   const formData = new FormData();
   formData.append(type, file);
 
-  return api.post('/upload', formData, {
-    headers: {
-      'Content-Type': 'multipart/form-data',
-    },
-  });
+  return api.post('/upload', formData);
 };
 
 // Helper function to build file URL
