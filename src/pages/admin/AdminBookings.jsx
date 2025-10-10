@@ -111,11 +111,11 @@ function AdminBookings() {
     useEffect(() => {
         fetchBookings(1);
         setCurrentPage(1);
-    }, [debouncedSearchTerm, statusFilter, sortBy, sortOrder]);
+    }, [debouncedSearchTerm, statusFilter, sortBy, sortOrder, fetchBookings]);
 
     useEffect(() => {
         fetchBookings(currentPage);
-    }, [currentPage]);
+    }, [currentPage, fetchBookings]);
 
     useEffect(() => {
         const fetchStats = async () => {
@@ -685,7 +685,7 @@ function AdminBookings() {
                                 <div>
                                     <span className="text-sm font-medium text-gray-500">Dokumen Persyaratan:</span>
                                     <div className="mt-2 flex items-center space-x-2">
-                                        <DocumentIcon className="h-5 w-5 text-gray-400" />
+                                        <DocumentIcon className="h-5 w-5 text-gray-800" />
                                         <button
                                             onClick={() => window.open(selectedBooking.documentUrl, '_blank')}
                                             className="text-sm text-blue-600 hover:text-blue-800 cursor-pointer"
