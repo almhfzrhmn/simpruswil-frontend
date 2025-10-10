@@ -111,13 +111,11 @@ function AdminBookings() {
     useEffect(() => {
         fetchBookings(1);
         setCurrentPage(1);
-    }, [debouncedSearchTerm, statusFilter, sortBy, sortOrder, fetchBookings]);
+    }, [debouncedSearchTerm, statusFilter, sortBy, sortOrder]);
 
     useEffect(() => {
-        if (currentPage > 1) {
-            fetchBookings(currentPage);
-        }
-    }, [currentPage, fetchBookings]);
+        fetchBookings(currentPage);
+    }, [currentPage]);
 
     useEffect(() => {
         const fetchStats = async () => {
