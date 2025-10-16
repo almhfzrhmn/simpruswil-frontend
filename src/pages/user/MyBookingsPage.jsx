@@ -557,14 +557,21 @@ const MyBookingsPage = () => {
 
                 {selectedBooking.documentUrl && (
                   <div className="bg-white/80 rounded-2xl p-4 backdrop-blur-sm border border-gray-200/50">
-                    <label className="text-sm font-semibold text-gray-600">Dokumen</label>
-                    <div className="mt-2">
+                    <label className="text-sm font-semibold text-gray-600">Dokumen Persyaratan</label>
+                    <div className="mt-2 flex items-center space-x-2">
+                      <DocumentTextIcon className="h-5 w-5 text-gray-800" />
+                      <button
+                        onClick={() => window.open(selectedBooking.documentUrl, '_blank')}
+                        className="text-sm text-blue-600 hover:text-blue-800 cursor-pointer"
+                      >
+                        Lihat Dokumen
+                      </button>
                       <button
                         onClick={() => handleDownloadDocument(selectedBooking.documentUrl, `booking-document-${selectedBooking._id}.pdf`)}
-                        className="inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-xl text-gray-700 bg-white hover:bg-gray-50 transition-all duration-200"
+                        className="p-1 text-gray-400 hover:text-gray-600"
+                        title="Unduh Dokumen"
                       >
-                        <ArrowDownTrayIcon className="-ml-0.5 mr-2 h-4 w-4" />
-                        Unduh Dokumen
+                        <ArrowDownTrayIcon className="h-4 w-4" />
                       </button>
                     </div>
                   </div>
