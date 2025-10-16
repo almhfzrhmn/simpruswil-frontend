@@ -561,7 +561,7 @@ const MyBookingsPage = () => {
                     <div className="mt-2 flex items-center space-x-2">
                       <DocumentTextIcon className="h-5 w-5 text-gray-800" />
                       <button
-                        onClick={() => window.open(selectedBooking.documentUrl, '_blank')}
+                        onClick={() => window.open(selectedBooking.documentViewUrl, '_blank')}
                         className="text-sm text-blue-600 hover:text-blue-800 cursor-pointer"
                       >
                         Lihat Dokumen
