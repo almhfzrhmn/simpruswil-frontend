@@ -461,6 +461,10 @@ const RoomsPage = () => {
                           {selectedRoom.operatingHours.start} - {selectedRoom.operatingHours.end}
                         </span>
                       </div>
+                      <div className="mt-2 text-xs text-gray-500 bg-gray-50 p-2 rounded">
+                        <strong>Catatan:</strong> Jam operasional berlaku untuk booking 1 hari.
+                        Booking lebih dari 1 hari tidak terbatas waktu (24 jam).
+                      </div>
                     </div>
                   )}
                 </div>
@@ -596,6 +600,23 @@ const RoomsPage = () => {
                       placeholderText="Pilih tanggal dan waktu selesai"
                       required
                     />
+                  </div>
+                </div>
+
+                {/* Booking Rules Info */}
+                <div className="bg-blue-50 border border-blue-200 rounded-md p-4">
+                  <div className="flex">
+                    <ClockIcon className="h-5 w-5 text-blue-400 mt-0.5 mr-3 flex-shrink-0" />
+                    <div className="text-sm text-blue-700">
+                      <p className="font-medium mb-1">Aturan Waktu Booking:</p>
+                      <ul className="list-disc list-inside space-y-1">
+                        <li><strong>Booking 1 hari:</strong> Jam operasional 08:00 - 17:00</li>
+                        <li><strong>Booking lebih dari 1 hari:</strong> Tidak ada batas waktu (24 jam penuh)</li>
+                      </ul>
+                      <p className="mt-2 text-xs">
+                        Sistem akan otomatis menyesuaikan validasi berdasarkan durasi booking Anda.
+                      </p>
+                    </div>
                   </div>
                 </div>
 
