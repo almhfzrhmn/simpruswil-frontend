@@ -41,7 +41,7 @@ const Layout = ({ children }) => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Mobile sidebar */}
-      <div className={`fixed inset-0 z-50 lg:hidden ${sidebarOpen ? 'block' : 'hidden'}`}>
+      <div className={`fixed inset-0 z-50 md:hidden ${sidebarOpen ? 'block' : 'hidden'}`}>
         <div
           className="fixed inset-0 bg-gray-600 bg-opacity-75"
           onClick={() => setSidebarOpen(false)}
@@ -103,7 +103,7 @@ const Layout = ({ children }) => {
       </div>
 
       {/* Desktop sidebar */}
-      <div className="hidden lg:fixed lg:inset-y-0 lg:flex lg:w-64 lg:flex-col">
+      <div className="hidden md:fixed md:inset-y-0 md:flex md:w-64 md:flex-col">
         <div className="flex flex-col flex-grow bg-white shadow-lg border-r border-gray-200">
           {/* Desktop Logo */}
           <div className="flex h-16 items-center px-6 border-b border-gray-200">
@@ -153,7 +153,7 @@ const Layout = ({ children }) => {
       </div>
 
       {/* Main content */}
-      <div className="lg:pl-64 flex flex-col flex-1 min-h-screen">
+      <div className="md:pl-64 flex flex-col flex-1 min-h-screen">
         {/* Top bar */}
         <div className="bg-white border-b border-gray-200 shadow-sm">
           <div className="px-4 sm:px-6 lg:px-8">
@@ -162,7 +162,7 @@ const Layout = ({ children }) => {
               <div className="flex items-center">
                 <button
                   type="button"
-                  className="-m-2.5 p-2.5 text-gray-700 lg:hidden"
+                  className="-m-2.5 p-2.5 text-gray-700 md:hidden"
                   onClick={() => setSidebarOpen(true)}
                 >
                   <span className="sr-only">Open sidebar</span>

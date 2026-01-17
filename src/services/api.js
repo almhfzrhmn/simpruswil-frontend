@@ -1,5 +1,6 @@
 // src/services/api.js - API Service Layer
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 // Create axios instance with base configuration
 const api = axios.create({
@@ -44,13 +45,18 @@ api.interceptors.response.use(
     if (error.response?.status === 401) {
       // Only remove token if it's not a login/register request
       const isAuthRequest = error.config.url?.includes('/auth/login') ||
-                           error.config.url?.includes('/auth/register');
+                            error.config.url?.includes('/auth/register');
 
       if (!isAuthRequest) {
         localStorage.removeItem('token');
         // Redirect to login page
         window.location.href = '/login';
       }
+    }
+
+    // Handle network errors
+    if (isNetworkError(error)) {
+      toast.error('Koneksi internet bermasalah. Silakan periksa koneksi Anda dan coba lagi.');
     }
 
     return Promise.reject(error);

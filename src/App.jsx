@@ -18,6 +18,7 @@ import { useAuth } from "./hooks/useAuth";
 // Lazy load all components for code splitting
 // Public Pages
 const LandingPage = lazy(() => import("./pages/public/LandingPage"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 const LoginPage = lazy(() => import("./pages/auth/LoginPage"));
 const RegisterPage = lazy(() => import("./pages/auth/RegisterPage"));
 const VerifyEmailPage = lazy(() => import("./pages/auth/VerifyEmailPage"));
@@ -260,21 +261,8 @@ const AppRouter = () => {
         }
       />
 
-      {/* Catch all route - redirect to appropriate dashboard or landing */}
-      <Route
-        path="*"
-        element={
-          user ? (
-            user.role === "admin" ? (
-              <Navigate to="/admin/dashboard" replace />
-            ) : (
-              <Navigate to="/dashboard" replace />
-            )
-          ) : (
-            <Navigate to="/" replace />
-          )
-        }
-      />
+      {/* Catch all route - show 404 page */}
+      <Route path="*" element={<NotFound />} />
     </Routes>
     </Suspense>
   );
